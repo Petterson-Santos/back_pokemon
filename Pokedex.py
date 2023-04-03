@@ -4,19 +4,25 @@ class Pokedex():
     def __init__(self):
         self.lista_pokemon = []
 
+    # poke1 e o input e poke2 e o pokemon goal
     def compare_name(self, poke1, poke2):
         if poke1.name == poke2.name:
             return 'Acertou'
         
-        return 'Errou'
+        return
     
+    # type = type1 ou type2
+    # type1 = type do pokemon do input
+    # type2 = type do pokemon goal
     def compare_type(self, type, type1, type2):
         if type1 == type2:
             return 'type'+type+ '== \t'
         
         return 'type'+type+ '!= \t'
     
-    def compare_numbers(self, type, num1, num2):
+    # type = height ou weight
+    # num1 e num2 mesma logica do compare_type
+    def compare_number(self, type, num1, num2):
         if type == 'h':
             if num1 == num2:
                 return 'height == \t'
@@ -32,6 +38,8 @@ class Pokedex():
             else:
                 return 'weight < )'
 
+    # poke1 = pokemon input
+    # poke2 = pokemon goal
     def compare_pokemon(self, poke1, poke2):
         if self.compare_name(poke1, poke2) == 'Acertou':
             return 'Acertou'
