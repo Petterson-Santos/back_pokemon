@@ -11,4 +11,6 @@ pokedex.lista_pokemon.append(geodude)
 pokedex.lista_pokemon.append(pikachu)
 pokedex.lista_pokemon.append(blastoise)
 
-print(geodude.name+'\n'+pokedex.compare_pokemon(geodude, geodude))
+pokemon = blastoise
+
+print(pokemon.name+'\n'+pokedex.compare_pokemon(pokemon, pikachu))
