@@ -17,48 +17,48 @@ class Pokedex():
      # poke2 = pokemon goal
     def compare_name(self, poke1, poke2):
         if poke1.name == poke2.name:
-            return GREEN+'Acertou'+RESET
+            return 'Acertou'
         
         return
     
     # type = type1 ou type2
     # type1 = type do pokemon input
     # type2 = type do pokemon goal
-    def compare_type(self, type, type1, type2):
+    def compare_type(self, type1, type2):
         if type1 == type2:
-            return GREEN+'type'+type+ '== \t'+RESET
+            return GREEN+type1+RESET
         
-        return RED+'type'+type+ '!= \t'+RESET
+        return RED+type1+RESET
     
     # type = height ou weight
     # num1 e num2 mesma logica do compare_type
-    def compare_number(self, type, num1, num2):
-        if type == 'h':
+    def compare_number(self, num1, num2):
             if num1 == num2:
-                return GREEN+'height== \t'+RESET
+                return GREEN+str(num1)+RESET
             elif num1 < num2:
-                return RED+'height> \t'+RESET
+                return RED+str(num1)+RESET
             else:
-                return RED+'height< \t'+RESET
-        else:
-            if num1 == num2:
-                return GREEN+'weight== '+RESET+')'
-            elif num1 < num2:
-                return RED+'weight> '+RESET+')'
-            else:
-                return RED+'weight< '+RESET+')'
+                return RED+str(num1)+RESET
 
     # poke1 = pokemon input
     # poke2 = pokemon goal
     def compare_pokemon(self, poke1, poke2):
         if self.compare_name(poke1, poke2) == 'Acertou':
+            print(
+                '( '+GREEN+poke1.type1+'\t'+poke1.type2+'\t'+str(poke1.height)+'\t'+str(poke1.weight)+RESET+' )'
+            )
             return 'Acertou'
         
         message = '( '
 
-        message += self.compare_type('1', poke1.type1, poke2.type1)
-        message += self.compare_type('2', poke1.type2, poke2.type2)
-        message += self.compare_number('h', poke1.height, poke2.height)
-        message += self.compare_number('w', poke1.weight, poke2.weight)
+        message += self.compare_type(poke1.type1, poke2.type1)
+        message += '\t'
+        message += self.compare_type(poke1.type2, poke2.type2)
+        message += '\t'
+        message += self.compare_number(poke1.height, poke2.height)
+        message += '\t'
+        message += self.compare_number(poke1.weight, poke2.weight)
+
+        message += ' )'
 
         return message
