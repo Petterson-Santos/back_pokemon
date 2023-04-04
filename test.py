@@ -1,5 +1,6 @@
 from Pokemon import Pokemon
 from Pokedex import Pokedex
+import os
 
 pokedex = Pokedex()
 
@@ -11,6 +12,14 @@ pokedex.lista_pokemon.append(geodude)
 pokedex.lista_pokemon.append(pikachu)
 pokedex.lista_pokemon.append(blastoise)
 
-pokemon = blastoise
+message = ''
 
-print(pokemon.name+'\n'+pokedex.compare_pokemon(pokemon, pikachu))
+while message != 'Acertou':
+    pokemon_name = input("Digite o nome do pokemon: ")
+    
+    pokemon = pokedex.get_pokemon(pokemon_name)
+    message = pokedex.compare_pokemon(pokemon, geodude)
+
+    print(pokemon.name+'\n'+message+os.linesep)
+
+print('Acabou')
